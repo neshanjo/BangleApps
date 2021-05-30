@@ -37,6 +37,7 @@ function resetSettings() {
     quiet: 0,              // quiet mode:  0: off, 1: priority only, 2: total silence
     timeout: 10,           // Default LCD timeout in seconds
     vibrate: true,         // Vibration enabled by default. App must support
+    vibrateMenu: 1,        // vibration in setUI
     beep: "vib",            // Beep enabled by default. App must support
     timezone: 0,           // Set the timezone for the device
     HID: false,           // BLE HID mode, off by default
@@ -108,6 +109,13 @@ function showMainMenu() {
           setTimeout(() => VIBRATE.write(0), 10);
         }
       }
+    },
+    'Menu Vibration': {
+      value: settings.vibrateMenu,
+      min: 0.0,
+      max: 1.0,
+      step: 0.25,
+      onchange: updateSettings
     },
     "Quiet Mode": ()=>showQuietModeMenu(),
     'Locale': ()=>showLocaleMenu(),

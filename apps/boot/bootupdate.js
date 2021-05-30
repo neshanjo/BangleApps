@@ -98,7 +98,7 @@ if (Bangle.touchandler) {
   delete Bangle.touchHandler;
 }
 function b() {
-  try{Bangle.buzz(20);}catch(e){}
+  try{Bangle.buzz(20,${s.vibrateMenu});}catch(e){}
 }
 if (!mode) return;
 else if (mode=="updown") {
